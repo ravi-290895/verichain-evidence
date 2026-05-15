@@ -1,0 +1,7 @@
+project_id = "cjelvuqusawdyevcfmzl"
+
+[functions.register-evidence]
+verify_jwt = false
+
+[functions.verify-evidence]
+verify_jwt = false
