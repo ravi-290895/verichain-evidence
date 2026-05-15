@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Forensic dark theme — midnight navy + electric cyan */
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 200 20% 92%;
+
+    --card: 222 40% 8%;
+    --card-foreground: 200 20% 92%;
+
+    --popover: 222 40% 8%;
+    --popover-foreground: 200 20% 92%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 5%;
+    --primary-glow: 187 100% 60%;
+
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 200 20% 92%;
+
+    --muted: 222 25% 12%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 187 80% 45%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --warning: 38 100% 56%;
+    --warning-foreground: 222 47% 5%;
+
+    --success: 142 76% 50%;
+    --success-foreground: 222 47% 5%;
+
+    --border: 222 30% 16%;
+    --input: 222 30% 14%;
+    --ring: 187 100% 50%;
+
+    --radius: 0.625rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(187 100% 50%), hsl(200 100% 55%));
+    --gradient-card: linear-gradient(180deg, hsl(222 40% 9%), hsl(222 40% 7%));
+    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(187 100% 50% / 0.15), transparent 70%);
+    --shadow-glow: 0 0 40px hsl(187 100% 50% / 0.25);
+    --shadow-block: 0 4px 24px hsl(222 47% 2% / 0.5), inset 0 1px 0 hsl(187 100% 50% / 0.08);
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 200 20% 92%;
+    --sidebar-primary: 187 100% 50%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 200 20% 92%;
+    --sidebar-border: 222 30% 16%;
+    --sidebar-ring: 187 100% 50%;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 200 20% 92%;
+    --card: 222 40% 8%;
+    --card-foreground: 200 20% 92%;
+    --popover: 222 40% 8%;
+    --popover-foreground: 200 20% 92%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 222 47% 5%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 200 20% 92%;
+    --muted: 222 25% 12%;
+    --muted-foreground: 215 15% 60%;
+    --accent: 187 80% 45%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 30% 16%;
+    --input: 222 30% 14%;
+    --ring: 187 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply dark;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image:
+      radial-gradient(circle at 0% 0%, hsl(187 100% 50% / 0.06), transparent 40%),
+      radial-gradient(circle at 100% 100%, hsl(200 100% 50% / 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer components {
+  .hash-block {
+    @apply font-mono text-xs px-2 py-1 rounded bg-muted border border-border text-primary break-all;
+  }
+  .glow-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-block);
+    border: 1px solid hsl(var(--border));
+  }
+  .glow-card:hover {
+    border-color: hsl(var(--primary) / 0.4);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
